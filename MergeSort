@@ -1,0 +1,33 @@
+def mergeSort(l):
+    print("Splitting ", l)
+
+    if len(l) > 1:
+        median = len(l) // 2
+        l_low = l[:median]
+        l_high = l[median:]
+        mergeSort(l_low)
+        mergeSort(l_high)
+
+        i, j, k = 0, 0, 0
+        while i < len(l_low) and j < len(l_high):
+            if l_low[i] >= l_high[j]:
+                l[k] = l_high[j]
+                j += 1
+            elif l_low[i] < l_high[j]:
+                l[k] = l_low[i]
+                i += 1
+            k += 1
+        while i < len(l_low):
+            l[k] = l_low[i]
+            i += 1
+            k += 1
+        while j < len(l_high):
+            l[k] = l_high[j]
+            j += 1
+            k += 1
+    print("Merging ", l)
+
+l = [4, 3, 2, 1]
+mergeSort(l)
+print('result: ')
+print(l)
