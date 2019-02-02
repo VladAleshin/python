@@ -1,0 +1,6 @@
+def Qsort(l):
+    if len(l) <= 1:
+        return l
+    else:
+        return Qsort([el for el in l[1:] if el < l[0]]) + [l[0]] + \
+                    Qsort([el for el in l[1:] if el >= l[0]])
