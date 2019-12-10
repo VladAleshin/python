@@ -1,0 +1,10 @@
+import itertools
+text = input()
+l = []
+for char, group in itertools.groupby(text):        
+    string_len = len(list(group))
+    if string_len > 1:
+        l.append(str(string_len))
+    l.append(char)    
+
+''.join(l)
