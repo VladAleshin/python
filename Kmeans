@@ -1,0 +1,26 @@
+np.random.seed(17)
+num_iters = 3
+X = np.zeros((150, 2))
+X[:50, 0] = np.random.normal(0, scale=0.3, size=50)
+X[:50, 1] = np.random.normal(0, scale=0.3, size=50)
+
+X[50:100, 0] = np.random.normal(-1, scale=.2, size=50)
+X[50:100, 1] = np.random.normal(2, scale=.2, size=50)
+
+X[100:150, 0] = np.random.normal(2, scale=.4, size=50)
+X[100:150, 1] = np.random.normal(3, scale=.4, size=50)
+
+centroids = np.random.normal(0.5, 1.0, size=6).reshape(3, 2)
+cent_history = []
+for i in range(num_iters):
+    distances = cdist(X, centroids)
+    labels = distances.argmin(axis=1)   
+    centroids = centroids.copy()
+    centroids[0, :] = np.mean(X[labels == 0, :], axis=0)
+    centroids[1, :] = np.mean(X[labels == 1, :], axis=0)   
+    centroids[2, :] = np.mean(X[labels == 2, :], axis=0)
+    cent_history.append(centroids)
+    
+    
+sns.scatterplot(X[:, 0], X[:, 1])
+sns.scatterplot(cent_history[num_iters - 1][:, 0], cent_history[num_iters - 1][:, 1], s=100)
