@@ -1,3 +1,8 @@
+from scipy.spatial.distance import cdist
+import numpy as np
+import seaborn as sns
+
+
 np.random.seed(17)
 num_iters = 3
 X = np.zeros((150, 2))
