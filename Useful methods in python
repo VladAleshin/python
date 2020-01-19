@@ -8,3 +8,7 @@ sys.getrefcount(a)
 ctypes.c_long.from_address(id(a)).value
 
 #2
+l1 = [1, 2, 3]
+l2 = 'XYZ'
+print([*l1, *l2])
+# [1 ,2, 3, 'X', 'Y', 'Z']
