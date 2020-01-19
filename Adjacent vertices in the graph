@@ -1,0 +1,19 @@
+#search for adjacent vertices in a graph
+
+import pandas as pd
+data = pd.DataFrame()
+data['source'] = [1, 2, 3, 1, 4, 5]
+data['dest'] = [2, 3, 7, 4, 5, 7]
+
+def func1(a, b):  
+  for ind, row in data.iterrows():
+      if (row.source == a) and (row.dest == b):    
+          return 1
+
+  for ind, row in data.iterrows():
+      if (row.source == a) and (row.dest != b):    
+          return func1(row.dest, b)
+
+  return 0
+
+func1(1, 3) 
