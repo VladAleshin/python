@@ -1,0 +1,10 @@
+
+import sys
+
+#1
+import sys
+a = 10
+sys.getrefcount(a)
+ctypes.c_long.from_address(id(a)).value
+
+#2
