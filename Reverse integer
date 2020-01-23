@@ -1,0 +1,15 @@
+
+#Given a signed integer, reverse digits of an integer.
+
+def func(num):
+    if num == 0:
+       return 0          
+    sign = ''
+    if num < 0:
+        sign = '-'
+    string = str(num)        
+    
+    return int(sign + string[::-1].replace('0', '').replace('-', '')) 
+
+
+func(2312365320)
