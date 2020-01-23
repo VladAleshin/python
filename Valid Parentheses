@@ -1,0 +1,21 @@
+#Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+def func(s):
+  stack = []
+  mapping = {'(': ')', '{':'}', '[':']'}
+  if not s:
+    return False
+  for el in s:
+      if el in mapping:
+        stack.append(el) 
+      else:
+        if stack and mapping[stack[-1]] == el:
+          stack.pop() 
+        else:
+          return False    
+
+  return stack == []        
+  
+s = '[{]'
+func(s)
+
