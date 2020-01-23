@@ -13,4 +13,19 @@ def func(l, result):
 
 print(func(l, result))
 
+# 2. one-pass hash table
+def func(l, result):
+  d = dict()
+  for (i, num) in enumerate(l):
+      diff = result - num
+      if diff not in d:
+          d[num] = i
+      else:
+          return (d[diff], i)     
+
+  return None        
+
+l = [1, 2, 3, 4, 5]
+result = 4
+func(l, result)
 
