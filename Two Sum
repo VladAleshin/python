@@ -1,0 +1,16 @@
+# Given an array of integers, return indices of the two numbers such that they add up to a specific target
+# 1. brute force
+
+l = [1, 2, 3, 4, 5]
+result = 4
+def func(l, result):
+    for i in range(len(l) - 1):
+        j = i + 1
+        for j in range(j, len(l)):
+            if (l[i] + l[j]) == result:
+                return (i, j)
+    return None            
+
+print(func(l, result))
+
+
