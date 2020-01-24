@@ -1,0 +1,15 @@
+# Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
+
+def func(l):
+    ind_to_del = []
+    t = l[0]
+    for i in range(len(l)-1):
+      if t == l[i+1]:
+          ind_to_del.append(i+1)
+      else:
+          t = l[i+1]    
+    for el in sorted(ind_to_del, reverse=True):
+        del l[el]     
+    return len(l)
+
+print(func(l), l)
