@@ -1,0 +1,23 @@
+# Write a function to find the longest common prefix string amongst an array of strings.
+
+l = ['flower', 'flow', 'flight']
+l = ['flower3', 'flower2', 'flower1']
+l =  ['ca', 'a']
+
+def func(l):
+  """   :type strs: List[str]
+        :rtype: str
+  """
+  prefix = ''
+  if (len(l)) == 0 or (len(l) == 1):
+      return ''  
+  string = l[0]    
+  for (i, el) in enumerate(string):
+      for word in l:
+          if el != word[i]:              
+              return prefix      
+      prefix += el
+
+  return prefix            
+
+print(func(l))
