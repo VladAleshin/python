@@ -7,9 +7,7 @@ def func(num):
     sign = ''
     if num < 0:
         sign = '-'
-    string = str(num)        
+    string = str(num)            
+    return int(sign + string[::-1].replace('-', ''))     
     
-    return int(sign + string[::-1].replace('0', '').replace('-', '')) 
-
-
-func(2312365320)
+func(123)    
