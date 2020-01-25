@@ -1,0 +1,7 @@
+# Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
+
+def func(num: int):
+  return int(num **(.5))
+  
+  
+  
