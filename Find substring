@@ -1,0 +1,13 @@
+# Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+def func(string1, string2):    
+    if not (string2 and (string2 in string1)):      
+      return -1
+    for i in range(len(string1) - len(string2) + 1):        
+        if string2 == string1[i:len(string2) + i]:
+            return i
+
+    return -1
+string1 = 'abc'
+string2 = 'bc'
+func(string1, string2)
