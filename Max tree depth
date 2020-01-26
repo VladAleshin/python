@@ -1,0 +1,42 @@
+
+
+def max_depth(root, count): 
+    if not root:
+        return count - 1
+    if root.left is None and root.right is None:
+        return count
+    return max(max_depth(root.left, count + 1),
+                              max_depth(root.right, count + 1))   
+
+class Node:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+    def __repr__(self):
+        left = None if self.left is None else self.left.val  
+        right = None if self.right is None else self.right.val  
+        return '[Root: {0}, L: {1}, R: {2}]'.format(self.val, left, right)         
+
+def build_tree(l):    
+    if not l:
+      return None
+    trees = [Node(el) for el in l]    
+    count = len(trees)
+    for (i, tree) in enumerate(trees):
+        left_index = 2 * i + 1
+        right_index = 2 * i + 2
+        if left_index < count:
+            tree.left = trees[left_index]
+        if right_index < count:
+            tree.right = trees[right_index]   
+
+    return trees
+
+def main():
+  l = [1, 2, 3, 4]
+  trees = build_tree(l)  
+  print(max_depth(trees[0], 1))
+
+if __name__ == '__main__':
+    main()
