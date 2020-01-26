@@ -1,0 +1,36 @@
+class Tree:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+    def __repr__(self):
+        left = None if self.left is None else self.left.val  
+        right = None if self.right is None else self.right.val  
+        return '[Root: {0}, L: {1}, R: {2}]'.format(self.val, left, right)    
+
+def build_tree(l):    
+    if not l:
+      return None
+    trees = [Tree(el) for el in l]    
+    count = len(trees)
+
+    for (i, tree) in enumerate(trees):
+        left_index = 2 * i + 1
+        right_index = 2 * i + 2
+        if left_index < count:
+            tree.left = trees[left_index]
+        if right_index < count:
+            tree.right = trees[right_index]        
+    
+    for tree in trees:
+        print(tree)
+    return trees[0]
+
+def main():
+  l = [3, 5, 2, 1, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+  root = build_tree(l)  
+  print('Root: {0}'.format(root))
+
+if __name__ == '__main__':
+    main()
+
