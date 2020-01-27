@@ -1,0 +1,11 @@
+# Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+
+l = [1, 1, 2, 2, 3, 3, 4, 4, 12, 12, -5, -5, 14, 14, 234]
+def func(l):
+    result = None
+    for el in l:
+        if l.count(el) != 2:
+            result = el
+    return result   
+
+print(func(l))
