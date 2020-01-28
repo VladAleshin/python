@@ -1,0 +1,21 @@
+
+# Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
+
+def func(n):
+    l = [[1], [1, 1]]
+    if n == 1:
+        return l[0]
+    if n == 2:
+        return l[1]    
+    for i in range(2, n):
+        t = [1]
+        for j in range(len(l[i-1]) - 1):                
+            t.append(l[i-1][j] + l[i-1][j+1])            
+        t.append(1)  
+        l.append(t)
+    
+    return l  
+
+n = 7
+func(n)
+  
