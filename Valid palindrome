@@ -1,0 +1,9 @@
+# Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases
+
+import re
+def func(string):
+    pattern = re.compile('[a-z0-9]+')
+    result = ''.join(re.findall(pattern, string.lower()))
+    return result[::-1] == result
+
+func('A man, a plan, a canal: Panama')   
