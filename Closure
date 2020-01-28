@@ -1,0 +1,12 @@
+# 1. We must have a nested function (function inside a function).
+# 2. The nested function must refer to a value defined in the enclosing function.
+# 3. The enclosing function must return the nested function.
+
+def mult(n):
+    def f(x):
+        return x * n
+    return  f
+    
+t1 = mult(10)    
+t2 = mult(15)
+t1(12), t2(15) # result 120, 225
