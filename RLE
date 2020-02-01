@@ -15,3 +15,27 @@ def compress(text):
     for char, same in itertools.groupby(text):
         count = sum(1 for _ in same) # number of repetitions
         yield char if count == 1 else str(count)+char
+
+
+
+def func(string):
+  if not string:
+      return ''
+  curr = string[0]
+  count = 0
+  l = []
+  for i in range(len(string)):
+      if curr == string[i]:
+          count += 1
+      else:    
+          l.append((count, curr))
+          curr = string[i]
+          count = 1
+  l.append((count, curr))
+  result = ''
+  for el in l:
+      result += str(el[0]) + el[1]
+  return result    
+
+string = 'sdfsdfsdf3'
+func(string)
