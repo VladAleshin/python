@@ -1,0 +1,36 @@
+# The count-and-say sequence is the sequence of integers with the first five terms as following:
+
+# 1.     1
+# 2.     11
+# 3.     21
+# 4.     1211
+# 5.     111221
+
+
+def calc_string(string):
+  if not string:
+      return ''
+  curr = string[0]
+  count = 0
+  l = []
+  for i in range(len(string)):
+      if curr == string[i]:
+          count += 1
+      else:    
+          l.append((count, curr))
+          curr = string[i]
+          count = 1
+  l.append((count, curr))
+  result = ''
+  for el in l:
+      result += str(el[0]) + el[1]
+  return result    
+
+
+def count_and_say(n):
+    if n == 1:
+        return '1'
+    else:
+        return calc_string(count_and_say(n-1))
+count_and_say(15)
+
