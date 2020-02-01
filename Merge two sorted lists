@@ -1,0 +1,27 @@
+
+# Merge two sorted linked lists and return it as a new list. 
+
+l1 = [1, 2, 3] 
+l2 = [-2, -1, 0] 
+
+def func(l1, l2):
+
+  if not l1:
+      return l2
+  if not l2:
+      return l1   
+
+  i, j = 0, 0
+  res = []
+  while i < len(l1) and j < len(l2):
+      if l1[i] < l2[j]:
+          res.append(l1[i])
+          i += 1
+      else:
+          res.append(l2[j])    
+          j += 1
+
+  return res + l1[i:] + l2[j:]         
+
+
+func(l1, l2)
