@@ -16,3 +16,18 @@ def func(l):
     return output         
 
 func(l) 
+
+
+# one pass
+def func(l):  
+  output = 0
+  min_price = float('inf')
+  for i in range(len(l)):
+      if l[i] < min_price:
+          min_price = l[i] 
+      else:
+          if l[i] - min_price > output:
+              output = l[i] - min_price
+
+  return output
+func(l)  
