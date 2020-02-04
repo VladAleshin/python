@@ -1,0 +1,13 @@
+# Given an array, rotate the array to the right by k steps, where k is non-negative.
+
+l = [1, 2, 3, 4, 5, 6, 7]
+n = 5
+def func(l, n):
+  if not l:
+      return []
+  for i in range(n):
+      l.insert(0, l[len(l) - 1])
+      del l[len(l) - 1] 
+
+func(l, n)
+print(l)
