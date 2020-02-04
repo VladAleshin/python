@@ -1,0 +1,13 @@
+
+# Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+l = [1, 0, 0, 0, 1, 23, 213, 12, 0, 23, 0, 0, 0, 12, 0]
+def func(l):
+    if not l:
+        return []
+    for i in range(len(l) - 1, -1, -1):
+        if l[i] == 0:
+            l.append(0)
+            del l[i] 
+func(l)
+print(l)
