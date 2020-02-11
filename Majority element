@@ -3,3 +3,19 @@
 def func(l):
    l.sort()
    return l[len(l) // 2]
+
+
+
+from collections import defaultdict
+l = [5, 1, 1, 1, 1, 4, 3]
+def f(l):
+    if not l:
+        return 0
+    d = defaultdict(int)
+    for el in l:
+        d[el] += 1 
+    return int(sorted(d.items(), 
+               key=lambda x: x[1], 
+               reverse=True)[0][1] > (len(l) // 2))
+
+f(l)
